@@ -18,11 +18,11 @@ function Nav() {
     Bulking: false,
   });
 
-  const toggleExerciseVisibility = (muscle) => {
-    setExerciseVisibility((prevState) => ({
-      ...prevState,
-      [muscle]: !prevState[muscle],
-    }));
+  const toggleExerciseVisibility = (category) => {
+    setExerciseVisibility({
+      ...exerciseVisibility,
+      [category]: !exerciseVisibility[category],
+    });
   };
   const asideRef = useRef(null);
   function toggleAside() {
@@ -119,6 +119,7 @@ function Nav() {
                 >
                   Triceps
                 </div>
+
                 {exerciseVisibility["Triceps"] && (
                   <>
                     <div className="exercise__free">
