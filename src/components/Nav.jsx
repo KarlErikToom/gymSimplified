@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Nav() {
+  const [exerciseVisibility, setExerciseVisibility] = useState({
+    Chest: false,
+    Shoulders: false,
+    Biceps: false,
+    Triceps: false,
+    Quads: false,
+    Hamstrings: false,
+    Football: false,
+    Basketball: false,
+    Soccer: false,
+    Meal_Prep: false,
+    Cutting: false,
+    Bulking: false,
+  });
+
+  // Function to toggle the visibility of exercises
+  const toggleExerciseVisibility = (muscle) => {
+    setExerciseVisibility((prevState) => ({
+      ...prevState,
+      [muscle]: !prevState[muscle],
+    }));
+  };
   return (
     <>
       <nav>
@@ -24,42 +46,376 @@ function Nav() {
       </nav>
       <aside className="sidebar__wrapper">
         <div className="aside">
+          
           <div className="sidebar__submenu">
             <div className="sidebar__submenu--wrapper">
-              <ul className="sidebar__muscle">Chest
-                <li className="sidebar__muscle--exercise">BenchPress</li>
-                <li className="sidebar__muscle--exercise">cable flys</li>
-                <li className="sidebar__muscle--exercise"> incline dumbbell press</li>
+              <span className="sidebar__submenu--class">Muscle groups</span>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Chest")}
+                >
+                  Chest
+                </div>
+                {exerciseVisibility["Chest"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
               </ul>
-              <ul className="sidebar__muscle">Shoulders
-                <li className="sidebar__muscle--exercise">BenchPress</li>
-                <li className="sidebar__muscle--exercise">cable flys</li>
-                <li className="sidebar__muscle--exercise"> incline dumbbell press</li>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Shoulders")}
+                >
+                  Shoulders
+                </div>
+                {exerciseVisibility["Shoulders"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
               </ul>
-              <ul className="sidebar__muscle">Triceps
-                <li className="sidebar__muscle--exercise">BenchPress</li>
-                <li className="sidebar__muscle--exercise">cable flys</li>
-                <li className="sidebar__muscle--exercise"> incline dumbbell press</li>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Triceps")}
+                >
+                  Triceps
+                </div>
+                {exerciseVisibility["Triceps"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
               </ul>
-              <ul className="sidebar__muscle">Biceps
-                <li className="sidebar__muscle--exercise">BenchPress</li>
-                <li className="sidebar__muscle--exercise">cable flys</li>
-                <li className="sidebar__muscle--exercise"> incline dumbbell press</li>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Biceps")}
+                >
+                  Biceps
+                </div>
+                {exerciseVisibility["Biceps"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
               </ul>
-              <ul className="sidebar__muscle">Back
-                <li className="sidebar__muscle--exercise">BenchPress</li>
-                <li className="sidebar__muscle--exercise">cable flys</li>
-                <li className="sidebar__muscle--exercise"> incline dumbbell press</li>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Quads")}
+                >
+                  Quads
+                </div>
+                {exerciseVisibility["Quads"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
               </ul>
-              <ul className="sidebar__muscle">Quads
-                <li className="sidebar__muscle--exercise">BenchPress</li>
-                <li className="sidebar__muscle--exercise">cable flys</li>
-                <li className="sidebar__muscle--exercise"> incline dumbbell press</li>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Hamstrings")}
+                >
+                  Hamstrings
+                </div>
+                {exerciseVisibility["Hamstrings"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
               </ul>
-              <ul className="sidebar__muscle">Hamstrings
-                <li className="sidebar__muscle--exercise">BenchPress</li>
-                <li className="sidebar__muscle--exercise">cable flys</li>
-                <li className="sidebar__muscle--exercise"> incline dumbbell press</li>
+            </div>
+            <div className="aside__message">
+            <div className="aside__message--wrapper">
+              <span>Dont forget</span>
+              <span>
+                Push yourself each and every workout
+                <FontAwesomeIcon className="rotate" icon="fa-solid fa-dumbbell" />
+              </span>
+            </div>
+          </div>
+            <div className="sidebar__submenu--wrapper">
+              <span className="sidebar__submenu--class">Sports Specific</span>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Football")}
+                >
+                  Football
+                </div>
+                {exerciseVisibility["Football"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">
+                        Football ex 1
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Football ex 2
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Football ex 3
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">
+                        Football ex 1
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Football ex 2
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Football ex 3
+                      </li>
+                    </div>
+                  </>
+                )}
+              </ul>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Basketball")}
+                >
+                  Basketball
+                </div>
+                {exerciseVisibility["Basketball"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
+              </ul>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Soccer")}
+                >
+                  Soccer
+                </div>
+                {exerciseVisibility["Soccer"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
+              </ul>
+            </div>
+            <div className="sidebar__submenu--wrapper">
+              <span className="sidebar__submenu--class">Food and Meal Prep</span>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Meal_Prep")}
+                >
+                  How to meal prep
+                </div>
+                {exerciseVisibility["Meal_Prep"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">
+                        Meal prep 1
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Meal prep 1
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Meal prep 1
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">
+                        Meal prep 2
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Meal prep 2
+                      </li>
+                      <li className="sidebar__muscle--exercise">
+                        Meal prep 2
+                      </li>
+                    </div>
+                  </>
+                )}
+              </ul>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Bulking")}
+                >
+                  Bulking foods
+                </div>
+                {exerciseVisibility["Bulking"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
+              </ul>
+              <ul className="sidebar__muscle">
+                <div
+                  className="title"
+                  onClick={() => toggleExerciseVisibility("Cutting")}
+                >
+                  Cutting foods
+                </div>
+                {exerciseVisibility["Cutting"] && (
+                  <>
+                    <div className="exercise__free">
+                      <span className="type">FREE</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                    <div className="exercise__members">
+                      <span className="type">Members only</span>
+                      <li className="sidebar__muscle--exercise">BenchPress</li>
+                      <li className="sidebar__muscle--exercise">cable flys</li>
+                      <li className="sidebar__muscle--exercise">
+                        incline dumbbell press
+                      </li>
+                    </div>
+                  </>
+                )}
               </ul>
             </div>
           </div>
