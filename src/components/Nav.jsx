@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import logo from "../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -18,19 +18,26 @@ function Nav() {
     Bulking: false,
   });
 
-  // Function to toggle the visibility of exercises
   const toggleExerciseVisibility = (muscle) => {
     setExerciseVisibility((prevState) => ({
       ...prevState,
       [muscle]: !prevState[muscle],
     }));
   };
+  const asideRef = useRef(null);
+  function toggleAside() {
+    const asideElement = asideRef.current;
+    if (asideElement) {
+      asideElement.classList.toggle("aside--visible");
+    }
+  }
+
   return (
     <>
       <nav>
         <div className="nav__wrapper">
           <div className="nav__left">
-            <button className="menu__btn">
+            <button className="menu__btn" onClick={toggleAside}>
               <FontAwesomeIcon
                 className="menu__btn--img"
                 icon="fa-solid fa-bars"
@@ -44,9 +51,8 @@ function Nav() {
           </div>
         </div>
       </nav>
-      <aside className="sidebar__wrapper">
+      <aside ref={asideRef} className={`sidebar__wrapper`}>
         <div className="aside">
-          
           <div className="sidebar__submenu">
             <div className="sidebar__submenu--wrapper">
               <span className="sidebar__submenu--class">Muscle groups</span>
@@ -220,14 +226,17 @@ function Nav() {
               </ul>
             </div>
             <div className="aside__message">
-            <div className="aside__message--wrapper">
-              <span>Dont forget</span>
-              <span>
-                Push yourself each and every workout
-                <FontAwesomeIcon className="rotate" icon="fa-solid fa-dumbbell" />
-              </span>
+              <div className="aside__message--wrapper">
+                <span>Dont forget</span>
+                <span>
+                  Push yourself each and every workout
+                  <FontAwesomeIcon
+                    className="rotate"
+                    icon="fa-solid fa-dumbbell"
+                  />
+                </span>
+              </div>
             </div>
-          </div>
             <div className="sidebar__submenu--wrapper">
               <span className="sidebar__submenu--class">Sports Specific</span>
               <ul className="sidebar__muscle">
@@ -324,7 +333,9 @@ function Nav() {
               </ul>
             </div>
             <div className="sidebar__submenu--wrapper">
-              <span className="sidebar__submenu--class">Food and Meal Prep</span>
+              <span className="sidebar__submenu--class">
+                Food and Meal Prep
+              </span>
               <ul className="sidebar__muscle">
                 <div
                   className="title"
@@ -336,27 +347,15 @@ function Nav() {
                   <>
                     <div className="exercise__free">
                       <span className="type">FREE</span>
-                      <li className="sidebar__muscle--exercise">
-                        Meal prep 1
-                      </li>
-                      <li className="sidebar__muscle--exercise">
-                        Meal prep 1
-                      </li>
-                      <li className="sidebar__muscle--exercise">
-                        Meal prep 1
-                      </li>
+                      <li className="sidebar__muscle--exercise">Meal prep 1</li>
+                      <li className="sidebar__muscle--exercise">Meal prep 1</li>
+                      <li className="sidebar__muscle--exercise">Meal prep 1</li>
                     </div>
                     <div className="exercise__members">
                       <span className="type">Members only</span>
-                      <li className="sidebar__muscle--exercise">
-                        Meal prep 2
-                      </li>
-                      <li className="sidebar__muscle--exercise">
-                        Meal prep 2
-                      </li>
-                      <li className="sidebar__muscle--exercise">
-                        Meal prep 2
-                      </li>
+                      <li className="sidebar__muscle--exercise">Meal prep 2</li>
+                      <li className="sidebar__muscle--exercise">Meal prep 2</li>
+                      <li className="sidebar__muscle--exercise">Meal prep 2</li>
                     </div>
                   </>
                 )}

@@ -59,18 +59,25 @@ nav {
 
 /*ASIDE*/
 .sidebar__wrapper {
-    position: fixed;
-    min-width: 18%;
-    height: 90%;
-    overflow: auto; /* Allow scrolling if content overflows the fixed height */
-    padding-left: 12px;
+  position: fixed;
+  min-width: 18%;
+  height: 90%;
+  overflow: auto;
+  padding-left: 12px;
+  left: -21%;
+  transition: all 800ms ease;
 }
-.sidebar__wrapper::-webkit-scrollbar{
-    width: 5px;
+.sidebar__wrapper.aside--visible{
+    left: 0;
 }
-.sidebar__wrapper::-webkit-scrollbar-thumb{
-    background-color: rgba(109,106,173,.7);
-    border-radius: 10px;
+
+
+.sidebar__wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar__wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(109, 106, 173, 0.7);
+  border-radius: 10px;
 }
 
 .aside__message {
