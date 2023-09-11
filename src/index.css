@@ -1,13 +1,90 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: purple;
+  color: white;
+  font-size: 24px;
+  margin: 0 12px;
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+/*NAV*/
+nav {
+  height: 10vh;
+  padding: 0 24px;
+}
+
+.nav__logo {
+  width: 160px;
+  height: 120px;
+}
+.nav__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu__btn {
+  padding: 12px;
+  border: none;
+  background-color: transparent;
+}
+.menu__btn:hover {
+  cursor: pointer;
+}
+.menu__btn--img {
+  font-size: 24px;
+}
+
+/*ASIDE*/
+.sidebar__wrapper {
+  max-width: 15%;
+  height: 100%;
+  overflow: hidden auto;
+  padding: 0 12px;
+}
+
+.sidebar__submenu--wrapper {
+  width: 80%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar__muscle {
+  width: 90%;
+  border-radius: 10px;
+  padding: 12px 6px;
+  margin: 6px 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  -webkit-box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 16px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 8px -3px rgba(0, 0, 0, 0.75);
+}
+.sidebar__muscle:hover {
+  background-color: rgba(128, 128, 128, 0.164);
+}
+.sidebar__muscle--exercise {
+  font-size: 12px;
+  display: none;
 }
