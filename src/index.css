@@ -70,3 +70,10 @@ nav {
 }
 
 
+.sidebar{
+  height: 85vh;
+  left: -20%;
+}
+.sidebar.side--visible{
+  left: 0;
+}
