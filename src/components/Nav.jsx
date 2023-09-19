@@ -32,66 +32,70 @@ function Nav() {
       </nav>
       <Sidebar className="sidebar" ref={sideBarRef}>
         <Menu>
-          <span>Exercises per muscle group</span>
-          <SubMenu label="Chest">
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-          </SubMenu>
-          <SubMenu label="Shoulders">
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-          </SubMenu>
-          <SubMenu label="Biceps">
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-          </SubMenu>
-          <SubMenu label="Triceps">
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-          </SubMenu>
-          <SubMenu label="Back">
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-          </SubMenu>
-          <SubMenu label="Quads">
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-          </SubMenu>
-          <SubMenu label="Hamstring">
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-            <MenuItem> Bench Press </MenuItem>
-            <MenuItem> cable flyes </MenuItem>
-            <MenuItem> Incline Dumbbell Press </MenuItem>
-          </SubMenu>
-          <span>NUTRITION</span>
-          <MenuItem>Foods for Bulking</MenuItem>
-          <MenuItem>Foods for Cutting</MenuItem>
+          <div className="exercise__menu">
+            <span>Exercises per muscle group</span>
+            <SubMenu label="Chest">
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+            </SubMenu>
+            <SubMenu label="Shoulders">
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+            </SubMenu>
+            <SubMenu label="Biceps">
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+            </SubMenu>
+            <SubMenu label="Triceps">
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+            </SubMenu>
+            <SubMenu label="Back">
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+            </SubMenu>
+            <SubMenu label="Quads">
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+            </SubMenu>
+            <SubMenu label="Hamstring">
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+              <MenuItem> Bench Press </MenuItem>
+              <MenuItem> cable flyes </MenuItem>
+              <MenuItem> Incline Dumbbell Press </MenuItem>
+            </SubMenu>
+          </div>
+          <div className="exercise__menu">
+            <span>NUTRITION</span>
+            <MenuItem>Foods for Bulking</MenuItem>
+            <MenuItem>Foods for Cutting</MenuItem>
+          </div>
         </Menu>
       </Sidebar>
       ;

@@ -69,11 +69,18 @@ nav {
   font-size: 24px;
 }
 
-
+/*SIDEBAR*/
 .sidebar{
   height: 85vh;
   left: -20%;
 }
 .sidebar.side--visible{
   left: 0;
+}
+.menu{
+  border: 1px solid black;
+}
+.exercise__menu{
+  box-shadow: 0px 0px 18px -3px rgba(0,0,0,0.1);
+  padding: 12px 0;
 }
