@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import logo from "../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { exerciseData as allExerciseData } from "../Data";
 
 function Nav() {
   const sideBarRef = useRef(null);
@@ -11,6 +12,7 @@ function Nav() {
       sideElement.classList.toggle("side--visible");
     }
   }
+  const [exercises, setExercises] = useState(allExerciseData);
   return (
     <>
       <nav>
@@ -35,60 +37,39 @@ function Nav() {
           <div className="exercise__menu">
             <span>Exercises per muscle group</span>
             <SubMenu label="Chest">
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
+              {exercises.Chest.map((exercise) => (
+                <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+              ))}
             </SubMenu>
             <SubMenu label="Shoulders">
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
+              {exercises.Shoulders.map((exercise) =>(
+                <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+              ))}
             </SubMenu>
             <SubMenu label="Biceps">
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
+              {exercises.Biceps.map((exercise) =>(
+                <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+              ))}
             </SubMenu>
             <SubMenu label="Triceps">
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
+              {exercises.Triceps.map((exercise) =>(
+                <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+              ))}
             </SubMenu>
             <SubMenu label="Back">
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
+              {exercises.Back.map((exercise) =>(
+                <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+              ))}
             </SubMenu>
             <SubMenu label="Quads">
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
+              {exercises.Quads.map((exercise) =>(
+                <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+              ))}
             </SubMenu>
             <SubMenu label="Hamstring">
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
-              <MenuItem> Bench Press </MenuItem>
-              <MenuItem> cable flyes </MenuItem>
-              <MenuItem> Incline Dumbbell Press </MenuItem>
+              {exercises.Hamstrings.map((exercise) =>(
+                <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+              ))}
             </SubMenu>
           </div>
           <div className="exercise__menu">
