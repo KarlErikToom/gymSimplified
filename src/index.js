@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faDumbbell, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
-library.add(faBars, faDumbbell);
+library.add(faBars, faDumbbell, faCheck);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,32 +1,26 @@
 import React, { useRef, useState } from "react";
 import logo from "../assets/logo.svg";
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
-function Nav() {
+function Nav({ setIsSidebarOpen }) {
+  function toggleSidebar() {
+    setIsSidebarOpen((prevIsSidebarOpen) => !prevIsSidebarOpen);
+  }
   return (
     <>
-      <Sidebar>
-        <Menu>
-          <SubMenu label='stuff'>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-          </SubMenu>
-          <SubMenu label='stuff'>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-            <MenuItem>me</MenuItem>
-          </SubMenu>
-        </Menu>
-      </Sidebar>
+      <nav>
+        <div className="nav__container">
+          <div className="nav__logo--btn">
+            <button onClick={toggleSidebar} className="">
+              Toggle
+            </button>
+            <img src={logo} alt="" className="nav__logo" />
+          </div>
+          <div className="nav__buttons">
+            <button className="btn">Login</button>
+            <button className="btn">SignUp</button>
+          </div>
+        </div>
+      </nav>
     </>
   );
 }
