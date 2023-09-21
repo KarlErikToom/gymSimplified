@@ -41,38 +41,38 @@ export const exerciseData = {
   Back: [
     {
       id: 1,
-      name: "Bench Press",
+      name: "Deadlift",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
     },
     {
       id: 2,
-      name: "Cable Flyes",
+      name: "Lat-Pulldown",
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
     {
       id: 3,
-      name: "Incline Dumbell Press",
+      name: "T-bar row",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "free",
     },
     {
       id: 4,
-      name: "Decline Barbell Bench",
+      name: "Barbell Row",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
     {
       id: 5,
-      name: "Machine Flyes",
+      name: "V-bar Row",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
     {
       id: 6,
-      name: "Dumbbell Flyes",
+      name: "Dumbbell row",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
@@ -80,38 +80,38 @@ export const exerciseData = {
   Shoulders: [
     {
       id: 1,
-      name: "Bench Press",
+      name: "Dumbbell shoulder Press",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
     },
     {
       id: 2,
-      name: "Cable Flyes",
+      name: "Dumbbell lateral raise",
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
     {
       id: 3,
-      name: "Incline Dumbell Press",
+      name: "Dumbbell Rear-delt fly",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "free",
     },
     {
       id: 4,
-      name: "Decline Barbell Bench",
+      name: "Dumbbell front raise",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
     {
       id: 5,
-      name: "Machine Flyes",
+      name: "Cable Lateral raise",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
     {
       id: 6,
-      name: "Dumbbell Flyes",
+      name: "Cable rear-delt fly",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
@@ -119,38 +119,27 @@ export const exerciseData = {
   Biceps: [
     {
       id: 1,
-      name: "Bench Press",
+      name: "Dumbbell Curl",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
     },
     {
       id: 2,
-      name: "Cable Flyes",
+      name: "Ez-bar curl",
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
+
     {
       id: 3,
-      name: "Incline Dumbell Press",
+      name: "Preacher curl",
       description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "free",
+      access: "user",
     },
     {
       id: 4,
-      name: "Decline Barbell Bench",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 5,
-      name: "Machine Flyes",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 6,
-      name: "Dumbbell Flyes",
+      name: "Concentration curl",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
@@ -158,38 +147,27 @@ export const exerciseData = {
   Triceps: [
     {
       id: 1,
-      name: "Bench Press",
+      name: "Rope tricep extensions",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
     },
     {
       id: 2,
-      name: "Cable Flyes",
+      name: "Tricep pushdowns",
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
+
     {
       id: 3,
-      name: "Incline Dumbell Press",
+      name: "Skullcrushers",
       description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "free",
+      access: "user",
     },
     {
       id: 4,
-      name: "Decline Barbell Bench",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 5,
-      name: "Machine Flyes",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 6,
-      name: "Dumbbell Flyes",
+      name: "Dips",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
@@ -197,38 +175,27 @@ export const exerciseData = {
   Quads: [
     {
       id: 1,
-      name: "Bench Press",
+      name: "Squat",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
     },
     {
       id: 2,
-      name: "Cable Flyes",
+      name: "Leg extensions",
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
+    
     {
       id: 3,
-      name: "Incline Dumbell Press",
+      name: "Hack squat",
       description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "free",
+      access: "user",
     },
     {
       id: 4,
-      name: "Decline Barbell Bench",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 5,
-      name: "Machine Flyes",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 6,
-      name: "Dumbbell Flyes",
+      name: "Sissy squat",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
@@ -236,38 +203,21 @@ export const exerciseData = {
   Hamstrings: [
     {
       id: 1,
-      name: "Bench Press",
+      name: "Romanian deadlift",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
     },
     {
       id: 2,
-      name: "Cable Flyes",
+      name: "Lying leg curl",
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
+    
     {
       id: 3,
-      name: "Incline Dumbell Press",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "free",
-    },
-    {
-      id: 4,
-      name: "Decline Barbell Bench",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 5,
-      name: "Machine Flyes",
-      description: "Isolate your chest muscles with this dumbbell exercise.",
-      access: "user",
-    },
-    {
-      id: 6,
-      name: "Dumbbell Flyes",
+      name: "Seated leg curl",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
     },
