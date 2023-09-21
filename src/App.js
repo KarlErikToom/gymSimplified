@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
+import Exercise from "./pages/Exercise";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -15,6 +16,7 @@ function App() {
         <Sidebar isOpen={isSidebarOpen} />
         <Routes>
           <Route exact path="/" element={<Landing />}/>
+          <Route path="/exercise" element={<Exercise />} />
         </Routes>
         </div>
       </Router>

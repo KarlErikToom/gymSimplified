@@ -2,6 +2,7 @@ import React from "react";
 import { Sidebar as Side, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { exerciseData } from "../Data";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar({ isOpen }) {
   const [exercise, setExercise] = useState(exerciseData);
@@ -19,7 +20,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Chest.filter(
                   (exercise) => exercise.access === "free"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`/chest/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
               <div className="workouts__user">
@@ -27,7 +30,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Chest.filter(
                   (exercise) => exercise.access === "user"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`chest/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
             </SubMenu>
@@ -37,7 +42,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Back.filter(
                   (exercise) => exercise.access === "free"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`back/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
               <div className="workouts__user">
@@ -45,7 +52,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Back.filter(
                   (exercise) => exercise.access === "user"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`back/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
             </SubMenu>
@@ -55,7 +64,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Shoulders.filter(
                   (exercise) => exercise.access === "free"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`shoulders/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
               <div className="workouts__user">
@@ -63,7 +74,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Shoulders.filter(
                   (exercise) => exercise.access === "user"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`shoulders/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
             </SubMenu>
@@ -73,7 +86,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Biceps.filter(
                   (exercise) => exercise.access === "free"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`biceps/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
               <div className="workouts__user">
@@ -81,7 +96,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Biceps.filter(
                   (exercise) => exercise.access === "user"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`biceps/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
             </SubMenu>
@@ -91,7 +108,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Triceps.filter(
                   (exercise) => exercise.access === "free"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`triceps/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
               <div className="workouts__user">
@@ -99,7 +118,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Triceps.filter(
                   (exercise) => exercise.access === "user"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`triceps/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
             </SubMenu>
@@ -109,7 +130,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Quads.filter(
                   (exercise) => exercise.access === "free"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`quads/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
               <div className="workouts__user">
@@ -117,7 +140,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Quads.filter(
                   (exercise) => exercise.access === "user"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`quads/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
             </SubMenu>
@@ -127,7 +152,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Hamstrings.filter(
                   (exercise) => exercise.access === "free"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`hamstrings/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
               <div className="workouts__user">
@@ -135,7 +162,9 @@ function Sidebar({ isOpen }) {
                 {exercise.Hamstrings.filter(
                   (exercise) => exercise.access === "user"
                 ).map((exercise) => (
-                  <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  <Link className="link" to={`hamstrings/${exercise.id}`}>
+                    <MenuItem key={exercise.id}>{exercise.name}</MenuItem>
+                  </Link>
                 ))}
               </div>
             </SubMenu>
