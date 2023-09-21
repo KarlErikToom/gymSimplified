@@ -9,7 +9,7 @@ function Exercise() {
               <div className="exercise__video--wrapper">
                 <iframe
                   className="exercise__video"
-                  src="https://www.youtube.com/embed/YDBLPJpl4GA?si=yFGN71w9ZwkOMZ7q"
+                  src="https://www.youtube.com/embed/-EIhKMDSjBY?si=QuyysWOe7_-nLKHd"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

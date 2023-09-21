@@ -5,6 +5,8 @@ export const exerciseData = {
       name: "Bench Press",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
+      src: "https://www.youtube.com/embed/vcBig73ojpE?si=OFEpHAClWVCvJB1s",
+      trainer: "Jeff Nippard",
     },
     {
       id: 2,
@@ -12,30 +14,40 @@ export const exerciseData = {
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
+      src: "https://www.youtube.com/embed/-EIhKMDSjBY?si=QuyysWOe7_-nLKHd",
+      trainer: "Jeff Nippard",
     },
     {
       id: 3,
       name: "Incline Dumbell Press",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "free",
+      src: "https://www.youtube.com/embed/8iPEnn-ltC8?si=MzcpWBYsk37nAPct",
+      trainer: "Scott Herman",
     },
     {
       id: 4,
       name: "Decline Barbell Bench",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/LfyQBUKR8SE?si=hS2VcMpjh5rFGA8E",
+      trainer: "Scott Herman",
     },
     {
       id: 5,
       name: "Machine Flyes",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/u56jywgbvE4?si=7bfoZNt3sj1yuppl",
+      trainer: "Moji Oluwa",
     },
     {
       id: 6,
       name: "Dumbbell Flyes",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/QENKPHhQVi4?si=9o3M-9GKCDUkdWq2",
+      trainer: "Mind Pump TV",
     },
   ],
   Back: [
@@ -186,7 +198,7 @@ export const exerciseData = {
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
-    
+
     {
       id: 3,
       name: "Hack squat",
@@ -214,7 +226,7 @@ export const exerciseData = {
         "An effective exercise for building chest strength and size.",
       access: "free",
     },
-    
+
     {
       id: 3,
       name: "Seated leg curl",
