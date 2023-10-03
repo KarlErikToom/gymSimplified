@@ -114,21 +114,9 @@ li {
   border-radius: 20px;
 }
 
-.workouts__free {
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  padding: 6px 12px;
-}
-.workouts__user {
-  display: flex;
-  flex-direction: column;
-  padding: 6px 12px;
-}
-.workouts__span {
-  font-weight: 700;
-  color: rgb(177, 21, 21);
-}
+
+
+
 /*LANDING */
 #landing {
   height: 70vh;
