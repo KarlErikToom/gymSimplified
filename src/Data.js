@@ -248,12 +248,16 @@ export const exerciseData = {
       name: "Hack squat",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/bhfyY8F8F24?si=tfP4xMbVOw9ZJPpc",
+      trainer: "Muscle & Strength",
     },
     {
       id: 4,
       name: "Sissy squat",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/zKzF4ndVPRo?si=Mer6mORXIkOue9qO",
+      trainer: "Buff Dudes",
     },
   ],
   Hamstrings: [
@@ -262,6 +266,8 @@ export const exerciseData = {
       name: "Romanian deadlift",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
+      src: "https://www.youtube.com/embed/_oyxCn2iSjU?si=owXlouJPH8VimOWh",
+      trainer: "Jeff Nippard",
     },
     {
       id: 2,
@@ -269,6 +275,8 @@ export const exerciseData = {
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
+      src: "https://www.youtube.com/embed/6y_GEg3YFC0?si=nN0DsM4P1v2agb4J",
+      trainer: "Ryan Humiston",
     },
 
     {
@@ -276,6 +284,8 @@ export const exerciseData = {
       name: "Seated leg curl",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/oFxEDkppbSQ?si=lOUK2Jn_7RMNIVp3",
+      trainer: "Physique Development",
     },
   ],
 };
