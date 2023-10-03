@@ -176,12 +176,16 @@ export const exerciseData = {
       name: "Preacher curl",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/vngli9UR6Hw?si=tg3FbG9AAZosiEh5",
+      trainer: "Jim Stoppani, PhD",
     },
     {
       id: 4,
       name: "Concentration curl",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/Jvj2wV0vOYU?si=TYVBaNk9vuzrDnhG",
+      trainer: "ScottHermanFitness",
     },
   ],
   Triceps: [
@@ -190,6 +194,8 @@ export const exerciseData = {
       name: "Rope tricep extensions",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
+      src: "https://www.youtube.com/embed/kiuVA0gs3EI?si=8rkiUHUudm0xPE8T",
+      trainer: "LIVESTRONG.COM",
     },
     {
       id: 2,
@@ -197,6 +203,8 @@ export const exerciseData = {
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
+      src: "https://www.youtube.com/embed/-zLyUAo1gMw?si=6uRe0F5d3V1FrRpE",
+      trainer: "Max Euceda",
     },
 
     {
@@ -204,12 +212,16 @@ export const exerciseData = {
       name: "Skullcrushers",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/S0fmDR60X-o?si=bbbzwmlBnc440IHA",
+      trainer: "Max Euceda",
     },
     {
       id: 4,
       name: "Dips",
       description: "Isolate your chest muscles with this dumbbell exercise.",
       access: "user",
+      src: "https://www.youtube.com/embed/wjUmnZH528Y?si=z-26-xemmqG22OwR",
+      trainer: "Buff Dudes",
     },
   ],
   Quads: [
