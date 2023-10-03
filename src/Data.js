@@ -230,6 +230,8 @@ export const exerciseData = {
       name: "Squat",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
+      src: "https://www.youtube.com/embed/gcNh17Ckjgg?si=INJYm4XNU38hlFPQ",
+      trainer: "Jeremy Ethier",
     },
     {
       id: 2,
@@ -237,6 +239,8 @@ export const exerciseData = {
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
+      src: "https://www.youtube.com/embed/ljO4jkwv8wQ?si=pyjpJJgiQXifhnWs",
+      trainer: "Jeff Nippard",
     },
 
     {
