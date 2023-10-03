@@ -158,6 +158,8 @@ export const exerciseData = {
       name: "Dumbbell Curl",
       description: "A classic bodyweight exercise for chest muscles.",
       access: "free",
+      src: "https://www.youtube.com/embed/in7PaeYlhrM?si=uLFBERPMIkIF28-Z",
+      trainer: "Mind Pump TV",
     },
     {
       id: 2,
@@ -165,6 +167,8 @@ export const exerciseData = {
       description:
         "An effective exercise for building chest strength and size.",
       access: "free",
+      src: "https://www.youtube.com/embed/6LrOTcr595A?si=b9e_2JOghJktTgjB",
+      trainer: "KAGED",
     },
 
     {
