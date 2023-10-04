@@ -21,7 +21,9 @@ function Nav({ setIsSidebarOpen }) {
           </div>
           <div className="nav__buttons">
             <button className="btn">Login</button>
+            <Link to={"/signup"}>
             <button className="btn">Sign Up</button>
+            </Link>
           </div>
         </div>
       </nav>

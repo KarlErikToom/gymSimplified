@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import ExercisePage from "./pages/ExercisePage";
+import Signup from "./pages/Signup";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Landing />} />
             <Route path="/:muscleGroup/:id" element={<ExercisePage />} />
+            <Route path="/signup" element={<Signup/>} />
           </Routes>
         </div>
       </Router>
