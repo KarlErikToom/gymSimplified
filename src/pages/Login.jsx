@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-function Signup() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function signUp(e) {
+  function signIn(e) {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
       })
@@ -19,13 +20,10 @@ function Signup() {
   return (
     <section id="signup">
       <div className="form-box">
-        <form className="form" onSubmit={signUp}>
-          <span className="title">Sign up</span>
-          <span className="subtitle">
-            Create a free account with your email.
-          </span>
+        <form className="form" onSubmit={signIn}>
+          <span className="title">Login</span>
+          <span className="subtitle">Login to your existing account</span>
           <div className="form-container">
-            <input type="text" className="input" placeholder="Username" />
             <input
               type="email"
               className="input"
@@ -41,11 +39,11 @@ function Signup() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit">Sign up</button>
+          <button type="submit">Login</button>
         </form>
         <div className="form-section">
           <p>
-            Already have an account? <a href="">Log in</a>{" "}
+            dont have an account? <a href="">Sign Up</a>{" "}
           </p>
         </div>
       </div>
@@ -53,4 +51,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;
