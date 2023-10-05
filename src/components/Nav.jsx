@@ -47,14 +47,11 @@ function Nav({ setIsSidebarOpen }) {
           <div className="nav__buttons">
             {authUser ? (
               <>
-                <Link to={"/login"}>
-                  <button className="btn" onClick={userSignOut}>
-                    Sign Out
-                  </button>
-                </Link>
-                <Link to={"/signup"}>
-                  <button className="btn">{authUser.email}</button>
-                </Link>
+                <button className="btn" onClick={userSignOut}>
+                  Sign Out
+                </button>
+
+                <button className="btn">{authUser.displayName}</button>
               </>
             ) : (
               <>

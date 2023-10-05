@@ -1,20 +1,27 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const navigate = useNavigate()
 
   function signUp(e) {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: username,
+        });
       })
       .catch((error) => {
         console.log(error);
       });
+      navigate("/")
   }
   return (
     <section id="signup">
@@ -25,7 +32,13 @@ function Signup() {
             Create a free account with your email.
           </span>
           <div className="form-container">
-            <input type="text" className="input" placeholder="Username" />
+            <input
+              type="text"
+              className="input"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
             <input
               type="email"
               className="input"

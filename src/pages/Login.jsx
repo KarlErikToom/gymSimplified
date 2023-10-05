@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
   function signIn(e) {
     e.preventDefault();
@@ -16,6 +18,7 @@ function Login() {
       .catch((error) => {
         console.log(error);
       });
+      navigate("/")
   }
   return (
     <section id="signup">
