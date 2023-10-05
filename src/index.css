@@ -197,6 +197,7 @@ nav {
 .results__wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 24px 0;
 }
 .results__info {
@@ -209,13 +210,30 @@ nav {
 .results__para {
   font-size: 18px;
 }
-.results__figure {
+.results__slider {
   width: 50%;
-  padding-left: 24px;
+  padding: 24px;
+  background-color: #98989942;
+  border-radius: 20px;
 }
-.results__img {
+.slide{
+  width: 100%;
+  position: relative;
+}
+.slide img{
+  max-height: 400px;
   width: 100%;
 }
+.slide h1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 42px;
+  text-align: center;
+}
+
 
 /*FOOTER*/
 
