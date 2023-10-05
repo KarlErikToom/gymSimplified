@@ -6,6 +6,7 @@ import bench from "../assets/bench.jpg";
 import Slider from "react-slick";
 import squat from "../assets/squat.jpg";
 import scale from "../assets/scale.jpg";
+import steak from "../assets/steak.jpg"
 
 function Results() {
   const settings = {
@@ -85,6 +86,12 @@ function Results() {
                   <div className="slide__content">
                     <img src={scale} alt="" />
                     <h1>Learn to diet</h1>
+                  </div>
+                </div>
+                <div className="slide">
+                  <div className="slide__content">
+                    <img src={steak} alt="" />
+                    <h1>Know what to eat</h1>
                   </div>
                 </div>
               </Slider>
