@@ -291,7 +291,11 @@ li {
   padding-top: 120px;
   background-color: #121212;
   height: 100vh;
+  background-image: url('./assets//blob.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .exercise__border {
   width: 100%;
@@ -356,6 +360,9 @@ li {
   align-items: center;
   justify-content: space-between;
 }
+
+
+
 /*SIGNUP*/
 
 #signup {
