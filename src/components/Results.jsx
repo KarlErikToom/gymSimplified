@@ -6,9 +6,36 @@ import bench from "../assets/bench.jpg";
 import Slider from "react-slick";
 import squat from "../assets/squat.jpg";
 import scale from "../assets/scale.jpg";
-import steak from "../assets/steak.jpg"
+import steak from "../assets/steak.jpg";
 
 function Results() {
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`custom-next-arrow ${className}`}
+        style={{
+          ...style,
+          display: "block",
+          right: "-5px",
+          fontSize: "24px",
+          zIndex: "1",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`custom-prev-arrow ${className}`}
+        style={{ display: "block", left: "-5px", zIndex: "1" }}
+        onClick={onClick}
+      />
+    );
+  }
   const settings = {
     dots: false,
     infinite: true,
@@ -19,7 +46,9 @@ function Results() {
     initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 5000,
-    cssEase:"linear",
+    cssEase: "linear",
+    nextArrow: <SampleNextArrow className="my-custom-next-arrow" />,
+    prevArrow: <SamplePrevArrow className="my-custom-next-arrow" />,
     responsive: [
       {
         breakpoint: 1024,
