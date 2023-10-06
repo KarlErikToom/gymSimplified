@@ -22,8 +22,12 @@ function Sidebar({ isOpen }) {
     };
   }, []);
   return (
-    <Side className={`sidebar ${isOpen ? "open" : "closed"}`}>
-      <Menu>
+    <Side
+      className={`sidebar ${isOpen ? "open" : "closed"}`}
+      backgroundColor="#161616"
+      style={{borderColor:'#161616'}}
+    >
+      <Menu className="menu">
         <div className="workouts">
           <div className="workouts__wrapper">
             <div className="workouts__label">
@@ -31,29 +35,37 @@ function Sidebar({ isOpen }) {
             </div>
             {Object.entries(exerciseData).map(([muscleGroup, exercises]) => (
               <SubMenu label={muscleGroup} key={muscleGroup}>
-                <MenuItem disabled>Free Access</MenuItem>
-                {exercises
-                  .filter((exercise) => exercise.access === "free")
-                  .map((exercise) => (
-                    <MenuItem
-                      key={exercise.id}
-                      component={<Link to={`/${muscleGroup}/${exercise.id}`} />}
-                    >
-                      {exercise.name}
-                    </MenuItem>
-                  ))}
-                <MenuItem disabled>User Access</MenuItem>
-                {exercises
-                  .filter((exercise) => exercise.access === "user")
-                  .map((exercise) => (
-                    <MenuItem
-                      key={exercise.id}
-                      component={<Link to={`/${muscleGroup}/${exercise.id}`} />}
-                      disabled={!authUser}
-                    >
-                      {exercise.name}
-                    </MenuItem>
-                  ))}
+                <div className="menuitem__wrapper">
+                  <span className="menuitem__span">Free Access</span>
+                  {exercises
+                    .filter((exercise) => exercise.access === "free")
+                    .map((exercise) => (
+                      <MenuItem
+                        key={exercise.id}
+                        component={
+                          <Link to={`/${muscleGroup}/${exercise.id}`} />
+                        }
+                      >
+                        {exercise.name}
+                      </MenuItem>
+                    ))}
+                </div>
+                <div className="menuitem__wrapper">
+                  <span className="menuitem__span">Users only</span>
+                  {exercises
+                    .filter((exercise) => exercise.access === "user")
+                    .map((exercise) => (
+                      <MenuItem
+                        key={exercise.id}
+                        component={
+                          <Link to={`/${muscleGroup}/${exercise.id}`} />
+                        }
+                        disabled={!authUser}
+                      >
+                        {exercise.name}
+                      </MenuItem>
+                    ))}
+                </div>
               </SubMenu>
             ))}
           </div>
