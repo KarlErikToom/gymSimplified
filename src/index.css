@@ -91,11 +91,11 @@ li {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.css-16jesut .ps-menu-button:hover{
+.css-16jesut .ps-menu-button:hover {
   background-color: #121212 !important;
   transition: all 200ms ease;
 }
-.css-z5rm24{
+.css-z5rm24 {
   background-color: #161616 !important;
 }
 .sidebar.closed {
@@ -126,27 +126,26 @@ li {
   background-color: #333333;
   color: #ffff;
 }
-.workouts__label{
+.workouts__label {
   margin-bottom: 12px;
 }
-.menuitem__wrapper{
+.menuitem__wrapper {
   margin: 6px;
-  box-shadow: 1px 2px 28px -4px rgba(58,187,43,0.62);
--webkit-box-shadow: 1px 2px 28px -4px rgba(58,187,43,0.62);
--moz-box-shadow: 1px 2px 28px -4px rgba(58,187,43,0.62);
-border-radius: 20px;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
+  box-shadow: 1px 2px 28px -4px rgba(58, 187, 43, 0.62);
+  -webkit-box-shadow: 1px 2px 28px -4px rgba(58, 187, 43, 0.62);
+  -moz-box-shadow: 1px 2px 28px -4px rgba(58, 187, 43, 0.62);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.menuitem__span{
-color: rgb(58,187,43);
-margin-left: 12px;
-margin-top: 12px;
-cursor: default;
-font-weight: 700;
+.menuitem__span {
+  color: rgb(58, 187, 43);
+  margin-left: 12px;
+  margin-top: 12px;
+  cursor: default;
+  font-weight: 700;
 }
-
 
 /*LANDING */
 #landing {
@@ -290,7 +289,7 @@ font-weight: 700;
 
 #exercise {
   padding-top: 120px;
-  background-color: rgba(211, 211, 211, 0.205);
+  background-color: #121212;
   height: 100vh;
 }
 
@@ -300,7 +299,7 @@ font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #161616;
   border-radius: 20px;
 }
 .exercise__wrapper {
@@ -325,11 +324,38 @@ font-weight: 700;
   border-radius: 20px;
 }
 .exercise__info {
+  width: 90%;
   display: flex;
   flex-direction: column;
   margin-top: 24px;
+  color: white;
+  align-items: start;
 }
-
+.exercise__trainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.exercise__trainer h2,
+.exercise__description h2 {
+  color: #3abb2b;
+}
+.exercise__trainer ,
+.exercise__description  {
+  margin: 12px 0;
+}
+.exercise__trainer span,
+.exercise__description span {
+  min-width: 500px;
+  font-size: 18px;
+}
+.exercise__description{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 /*SIGNUP*/
 
 #signup {
