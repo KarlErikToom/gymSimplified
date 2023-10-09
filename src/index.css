@@ -291,13 +291,22 @@ li {
   padding-top: 120px;
   background-color: #121212;
   height: 100vh;
-  background-image: url('./assets//blob.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+}
+.top__svg{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.bottom__svg{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
 }
 
-
 .exercise__border {
+  position: relative;
   width: 100%;
   height: 800px;
   display: flex;
@@ -305,6 +314,7 @@ li {
   justify-content: center;
   background-color: #161616;
   border-radius: 20px;
+  z-index: 5;
 }
 .exercise__wrapper {
   width: 90%;
@@ -345,8 +355,8 @@ li {
 .exercise__description h2 {
   color: #3abb2b;
 }
-.exercise__trainer ,
-.exercise__description  {
+.exercise__trainer,
+.exercise__description {
   margin: 12px 0;
 }
 .exercise__trainer span,
@@ -354,14 +364,12 @@ li {
   min-width: 500px;
   font-size: 18px;
 }
-.exercise__description{
+.exercise__description {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-
 
 /*SIGNUP*/
 
