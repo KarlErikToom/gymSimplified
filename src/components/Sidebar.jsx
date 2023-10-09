@@ -5,8 +5,14 @@ import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-function Sidebar({ isOpen }) {
+function Sidebar({ isOpen, onClose }) {
   const [authUser, setAuthUser] = useState(null);
+
+  function closeSidebar() {
+    if (isOpen) {
+      onClose();
+    }
+  }
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -25,7 +31,7 @@ function Sidebar({ isOpen }) {
     <Side
       className={`sidebar ${isOpen ? "open" : "closed"}`}
       backgroundColor="#161616"
-      style={{borderColor:'#161616'}}
+      style={{ borderColor: "#161616" }}
     >
       <Menu className="menu">
         <div className="workouts">
@@ -45,6 +51,7 @@ function Sidebar({ isOpen }) {
                         component={
                           <Link to={`/${muscleGroup}/${exercise.id}`} />
                         }
+                        onClick={closeSidebar}
                       >
                         {exercise.name}
                       </MenuItem>
@@ -61,6 +68,7 @@ function Sidebar({ isOpen }) {
                           <Link to={`/${muscleGroup}/${exercise.id}`} />
                         }
                         disabled={!authUser}
+                        onClick={closeSidebar}
                       >
                         {exercise.name}
                       </MenuItem>

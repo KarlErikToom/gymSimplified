@@ -100,7 +100,7 @@ li {
 }
 .sidebar.closed {
   position: fixed;
-  left: -100%;
+  left: -30%;
   top: 10%;
 }
 .sidebar.open {
