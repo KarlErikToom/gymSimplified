@@ -6,6 +6,7 @@ import Landing from "./pages/Landing";
 import ExercisePage from "./pages/ExercisePage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import AccountDetails from "./pages/AccountDetails";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -21,6 +22,7 @@ function App() {
             <Route path="/:muscleGroup/:id" element={<ExercisePage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/details" element={<AccountDetails />} />
           </Routes>
         </div>
       </Router>

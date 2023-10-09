@@ -48,21 +48,23 @@ function Nav({ setIsSidebarOpen }) {
           <div className="nav__buttons">
             {authUser ? (
               <>
-                <button className="btn" onClick={userSignOut}>
-                  Sign Out
-                </button>
-
                 <button
                   className="user__btn btn"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
-                  {authUser.displayName[0]}
+                  {authUser.displayName}
                 </button>
                 {dropdownOpen && (
                   <div className="nav__dropdown">
                     <ul className="nav__dropdown--list">
-                      <a href="" className="link"> <li className="nav__dropdown--link">Account</li></a>
-                      <a href="" className="link"> <li className="nav__dropdown--link">Logout</li></a>
+                      <Link to={"/details"} className="link">
+                        {" "}
+                        <li className="nav__dropdown--link">Account</li>
+                      </Link>
+                      <a href="" className="link" onClick={userSignOut}>
+                        {" "}
+                        <li className="nav__dropdown--link">Logout</li>
+                      </a>
                     </ul>
                   </div>
                 )}

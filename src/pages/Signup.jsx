@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function signUp(e) {
     e.preventDefault();
@@ -21,7 +21,7 @@ function Signup() {
       .catch((error) => {
         console.log(error);
       });
-      navigate("/")
+    navigate("/");
   }
   return (
     <section id="signup">
