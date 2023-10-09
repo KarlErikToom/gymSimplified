@@ -27,14 +27,14 @@ function Sidebar({ isOpen }) {
       backgroundColor="#161616"
       style={{ borderColor: "#161616" }}
     >
-      <Menu className="menu"  >
+      <Menu className="menu">
         <div className="workouts">
           <div className="workouts__wrapper">
             <div className="workouts__label">
               <span>Muscle Groups</span>
             </div>
             {Object.entries(exerciseData).map(([muscleGroup, exercises]) => (
-              <SubMenu label={muscleGroup} key={muscleGroup} >
+              <SubMenu label={muscleGroup} key={muscleGroup}>
                 <div className="menuitem__wrapper">
                   <span className="menuitem__span">Free Access</span>
                   {exercises

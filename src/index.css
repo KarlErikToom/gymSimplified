@@ -18,7 +18,7 @@ li {
 }
 .link {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .btn {
   padding: 14px 36px;
@@ -31,7 +31,9 @@ li {
 }
 .btn:hover {
   cursor: pointer;
-  background-color: rgb(177, 21, 21);
+  box-shadow: 1px 1px 16px -2px rgba(58, 187, 43, 0.75);
+  -webkit-box-shadow: 1px 1px 16px -2px rgba(58, 187, 43, 0.75);
+  -moz-box-shadow: 1px 1px 16px -2px rgba(58, 187, 43, 0.75);
 }
 
 .fa-check {
@@ -78,6 +80,40 @@ li {
   width: 150px;
   height: 90px;
   filter: invert(1);
+}
+.user__btn {
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 24px;
+}
+.nav__buttons {
+  position: relative;
+}
+.nav__dropdown {
+  position: absolute;
+  background-color: #424141c7;
+  right: 20%;
+  width: 50%;
+  border-radius: 12px 0px 12px 12px;
+}
+.nav__dropdown--list {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav__dropdown--link {
+  padding: 12px 24px;
+  width: 100%;
+  text-align: center;
+  transition: background-color 200ms ease;
+  border-radius: 10px;
+}
+.nav__dropdown--link:hover {
+  background-color: #161616;
 }
 
 /*SIDEBAR*/
@@ -293,12 +329,12 @@ li {
   height: 100vh;
   position: relative;
 }
-.top__svg{
+.top__svg {
   position: absolute;
   top: 0;
   z-index: 1;
 }
-.bottom__svg{
+.bottom__svg {
   position: absolute;
   bottom: 0;
   right: 0;

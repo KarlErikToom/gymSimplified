@@ -7,6 +7,7 @@ import { auth } from "../firebase";
 
 function Nav({ setIsSidebarOpen }) {
   const [authUser, setAuthUser] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   function toggleSidebar() {
     setIsSidebarOpen((prevIsSidebarOpen) => !prevIsSidebarOpen);
@@ -51,7 +52,20 @@ function Nav({ setIsSidebarOpen }) {
                   Sign Out
                 </button>
 
-                <button className="btn">{authUser.displayName}</button>
+                <button
+                  className="user__btn btn"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                >
+                  {authUser.displayName[0]}
+                </button>
+                {dropdownOpen && (
+                  <div className="nav__dropdown">
+                    <ul className="nav__dropdown--list">
+                      <a href="" className="link"> <li className="nav__dropdown--link">Account</li></a>
+                      <a href="" className="link"> <li className="nav__dropdown--link">Logout</li></a>
+                    </ul>
+                  </div>
+                )}
               </>
             ) : (
               <>
