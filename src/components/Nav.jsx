@@ -3,11 +3,19 @@ import logo from "../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import {
+  QuerySnapshot,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 function Nav({ setIsSidebarOpen }) {
   const [authUser, setAuthUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userData, setUserData] = useState([]);
 
   function toggleSidebar() {
     setIsSidebarOpen((prevIsSidebarOpen) => !prevIsSidebarOpen);
@@ -21,16 +29,33 @@ function Nav({ setIsSidebarOpen }) {
       .catch((error) => console.log(error));
   }
   useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
+
+        const q = query(
+          collection(db, "users"),
+          where("email", "==", user.email)
+        );
+
+        getDocs(q)
+          .then((QuerySnapshot) => {
+            QuerySnapshot.forEach((doc) => {
+              const userData = doc.data();
+              setUserData(userData);
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       } else {
         setAuthUser(null);
       }
     });
 
     return () => {
-      listen();
+      // Unsubscribe from the auth state change listener when the component unmounts
+      unsubscribe();
     };
   }, []);
   return (
@@ -52,7 +77,7 @@ function Nav({ setIsSidebarOpen }) {
                   className="user__btn btn"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
-                  {authUser.displayName}
+                  {userData.username?.split("")[0].toString().toUpperCase()}
                 </button>
                 {dropdownOpen && (
                   <div className="nav__dropdown">

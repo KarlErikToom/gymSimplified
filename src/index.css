@@ -465,6 +465,14 @@ li {
   margin: 12px 0;
   background-color: #fff;
 }
+.input-half{
+  width: 45%;
+}
+.input__wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
 .form-section {
   padding: 16px;
@@ -507,4 +515,27 @@ li {
 #account{
   background-color: #121212;
   height: 100vh;
+  padding-top: 120px;
+}
+
+.account__details{
+  background-color: white;
+  padding: 24px;
+}
+.account__details--wrapper{
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.detail{
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+}
+.detail-title{
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
 }

@@ -1,37 +1,59 @@
 import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
 
 function Signup() {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const navigate = useNavigate();
 
-  function signUp(e) {
+  function register(e) {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        updateProfile(user, {
-          displayName: username,
-        });
+        const userData = {
+          firstName: firstname,
+          lastName: lastname,
+          username: username,
+          email: email,
+          id: user.uid,
+        };
+        addDoc(collection(db, "users"), userData);
+        console.log(user);
       })
       .catch((error) => {
         console.log(error);
       });
-    navigate("/");
   }
   return (
     <section id="signup">
       <div className="form-box">
-        <form className="form" onSubmit={signUp}>
+        <form className="form" onSubmit={register}>
           <span className="title">Sign up</span>
           <span className="subtitle">
             Create a free account with your email.
           </span>
           <div className="form-container">
+            <div className="input__wrapper">
+              <input
+                type="text"
+                className="input input-half"
+                placeholder="first name"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+              />
+              <input
+                type="text"
+                className="input input-half"
+                placeholder="last name"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+              />
+            </div>
             <input
               type="text"
               className="input"
