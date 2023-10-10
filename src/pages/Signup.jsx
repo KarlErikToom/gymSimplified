@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const [firstname, setFirstname] = useState("");
@@ -10,6 +10,9 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate= useNavigate()
 
   function register(e) {
     e.preventDefault();
@@ -24,10 +27,11 @@ function Signup() {
           id: user.uid,
         };
         addDoc(collection(db, "users"), userData);
-        console.log(user);
+        navigate("/")
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message)
       });
   }
   return (
@@ -38,6 +42,7 @@ function Signup() {
           <span className="subtitle">
             Create a free account with your email.
           </span>
+          {errorMessage && <div>{errorMessage}</div>}
           <div className="form-container">
             <div className="input__wrapper">
               <input

@@ -4,18 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
-import {
-  QuerySnapshot,
-  collection,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { useRef } from "react";
 
 function Nav({ setIsSidebarOpen }) {
   const [authUser, setAuthUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [userData, setUserData] = useState([]);
+
+  const menuRef = useRef(null);
 
   function toggleSidebar() {
     setIsSidebarOpen((prevIsSidebarOpen) => !prevIsSidebarOpen);
@@ -29,6 +26,12 @@ function Nav({ setIsSidebarOpen }) {
       .catch((error) => console.log(error));
   }
   useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
@@ -56,11 +59,12 @@ function Nav({ setIsSidebarOpen }) {
     return () => {
       // Unsubscribe from the auth state change listener when the component unmounts
       unsubscribe();
+      document.removeEventListener("mousedown", handler);
     };
   }, []);
   return (
     <>
-      <nav>
+      <nav ref={menuRef}>
         <div className="nav__container">
           <div className="nav__logo--btn">
             <button onClick={toggleSidebar} className="menu__btn">
@@ -82,11 +86,15 @@ function Nav({ setIsSidebarOpen }) {
                 {dropdownOpen && (
                   <div className="nav__dropdown">
                     <ul className="nav__dropdown--list">
-                      <Link to={"/details"} className="link">
+                      <Link
+                        to={"/details"}
+                        className="link"
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                      >
                         {" "}
                         <li className="nav__dropdown--link">Account</li>
                       </Link>
-                      <a href="" className="link" onClick={userSignOut}>
+                      <a href="/" className="link" onClick={userSignOut}>
                         {" "}
                         <li className="nav__dropdown--link">Logout</li>
                       </a>

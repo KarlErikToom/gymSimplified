@@ -8,6 +8,8 @@ import { onAuthStateChanged } from "firebase/auth";
 function Sidebar({ isOpen }) {
   const [authUser, setAuthUser] = useState(null);
 
+  
+
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -34,7 +36,10 @@ function Sidebar({ isOpen }) {
               <span>Muscle Groups</span>
             </div>
             {Object.entries(exerciseData).map(([muscleGroup, exercises]) => (
-              <SubMenu label={muscleGroup} key={muscleGroup}>
+              <SubMenu
+                label={muscleGroup}
+                key={muscleGroup}
+              >
                 <div className="menuitem__wrapper">
                   <span className="menuitem__span">Free Access</span>
                   {exercises
