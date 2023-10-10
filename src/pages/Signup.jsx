@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const [firstname, setFirstname] = useState("");
@@ -45,6 +46,7 @@ function Signup() {
                 placeholder="first name"
                 value={firstname}
                 onChange={(e) => setFirstname(e.target.value)}
+                required
               />
               <input
                 type="text"
@@ -52,6 +54,7 @@ function Signup() {
                 placeholder="last name"
                 value={lastname}
                 onChange={(e) => setLastname(e.target.value)}
+                required
               />
             </div>
             <input
@@ -60,6 +63,7 @@ function Signup() {
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              required
             />
             <input
               type="email"
@@ -67,6 +71,7 @@ function Signup() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <input
               type="password"
@@ -74,13 +79,14 @@ function Signup() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button type="submit">Sign up</button>
         </form>
         <div className="form-section">
           <p>
-            Already have an account? <a href="">Log in</a>{" "}
+            Already have an account? <Link to={"/login"}>Log in</Link>
           </p>
         </div>
       </div>
