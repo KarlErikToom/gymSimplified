@@ -149,7 +149,11 @@ function AccountDetails() {
                 <span className="detail-title">First Name</span>
                 <div className="detail__wrapper">
                   {editFirstName ? (
-                    <form action="" onSubmit={updateFirstName}>
+                    <form
+                      action=""
+                      onSubmit={updateFirstName}
+                      className="detail__form"
+                    >
                       <input
                         className="input input__details"
                         type="text"
@@ -158,19 +162,29 @@ function AccountDetails() {
                         placeholder={userData.firstName}
                         required
                       />
-                      <button className="btn" type="submit">
-                        Save
-                      </button>
+                      <div className="buttons">
+                        <button className="btn" type="submit">
+                          Save
+                        </button>
+                        <button
+                          className="btn red"
+                          onClick={() => setEditFirstName(!editFirstName)}
+                        >
+                          Cancel
+                        </button>
+                      </div>
                     </form>
                   ) : (
-                    <span>{userData.firstName}</span>
+                    <>
+                      <span>{userData.firstName}</span>
+                      <button
+                        className="btn"
+                        onClick={() => setEditFirstName(!editFirstName)}
+                      >
+                        Edit
+                      </button>
+                    </>
                   )}
-                  <button
-                    className="btn"
-                    onClick={() => setEditFirstName(!editFirstName)}
-                  >
-                    {editFirstName ? "Save" : "Edit"}
-                  </button>
                   <div className="line"></div>
                 </div>
               </div>
@@ -178,7 +192,11 @@ function AccountDetails() {
                 <span className="detail-title">Last Name</span>
                 <div className="detail__wrapper">
                   {editLastName ? (
-                    <form action="" onSubmit={updateLastName}>
+                    <form
+                      action=""
+                      onSubmit={updateLastName}
+                      className="detail__form"
+                    >
                       <input
                         className="input input__details"
                         type="text"
@@ -187,19 +205,29 @@ function AccountDetails() {
                         placeholder={userData.lastName}
                         required
                       />
-                      <button className="btn" type="submit">
-                        Save
-                      </button>
+                      <div className="buttons">
+                        <button className="btn" type="submit">
+                          Save
+                        </button>
+                        <button
+                          className="btn red"
+                          onClick={() => setEditLastName(!editLastName)}
+                        >
+                          Cancel
+                        </button>
+                      </div>
                     </form>
                   ) : (
-                    <span>{userData.lastName}</span>
+                    <>
+                      <span>{userData.lastName}</span>
+                      <button
+                        className="btn"
+                        onClick={() => setEditLastName(!editLastName)}
+                      >
+                        Edit
+                      </button>
+                    </>
                   )}
-                  <button
-                    className="btn"
-                    onClick={() => setEditLastName(!editLastName)}
-                  >
-                    {editLastName ? "Save" : "Edit"}
-                  </button>
                   <div className="line"></div>
                 </div>
               </div>
@@ -208,7 +236,11 @@ function AccountDetails() {
                 <span className="detail-title">Username</span>
                 <div className="detail__wrapper">
                   {editUsername ? (
-                    <form action="" onSubmit={updateUsername}>
+                    <form
+                      action=""
+                      onSubmit={updateUsername}
+                      className="detail__form"
+                    >
                       <input
                         className="input input__details"
                         type="text"
@@ -217,9 +249,17 @@ function AccountDetails() {
                         placeholder={userData.username}
                         required
                       />
-                      <button className="btn" type="submit">
-                        Save
-                      </button>
+                      <div className="buttons">
+                        <button className="btn" type="submit">
+                          Save
+                        </button>
+                        <button
+                          className="btn red"
+                          onClick={() => setEditUsername(!editUsername)}
+                        >
+                          Cancel
+                        </button>
+                      </div>
                     </form>
                   ) : (
                     <>
