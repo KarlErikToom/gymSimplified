@@ -1,21 +1,41 @@
 import { onAuthStateChanged, updateProfile } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 
 function AccountDetails() {
   const [authUser, setAuthUser] = useState(null);
   const [userData, setUserData] = useState([]);
+  const [showInput, setShowInput] = useState(false);
+  const [newUsername, setNewUsername] = useState("");
+
+  async function updateUsername() {
+    const hardcodedId = "BleYxA1sHT8aAwiUvRpo";
+    const userRef = doc(db, "users", hardcodedId);
+    const newName = {
+      username: newUsername,
+    };
+    updateDoc(userRef, newName);
+  }
+
+  function toggleInput() {
+    setShowInput(!showInput);
+  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
 
-        const q = query(
-          collection(db, "users"),
-          where("email", "==", user.email)
-        );
+        const q = query(collection(db, "users"), where("id", "==", user.uid));
 
         getDocs(q)
           .then((QuerySnapshot) => {
@@ -47,28 +67,66 @@ function AccountDetails() {
             <div className="account__details--wrapper">
               <div className="detail">
                 <span className="detail-title">Email</span>
-                <span>{userData.email}</span>
-                <div className="line"></div>
+                <div className="detail__wrapper">
+                  <span>{userData.email}</span>
+                  <button className="btn">Edit</button>
+                  <div className="line"></div>
+                </div>
               </div>
               <div className="detail">
                 <span className="detail-title">First Name</span>
-                <span>{userData.firstName}</span>
-                <div className="line"></div>
+                <div className="detail__wrapper">
+                  <span>{userData.firstName}</span>
+                  <button className="btn">Edit</button>
+                  <div className="line"></div>
+                </div>
               </div>
               <div className="detail">
                 <span className="detail-title">Last Name</span>
-                <span>{userData.lastName}</span>
-                <div className="line"></div>
+                <div className="detail__wrapper">
+                  <span>{userData.lastName}</span>
+                  <button className="btn">Edit</button>
+                  <div className="line"></div>
+                </div>
               </div>
               <div className="detail">
                 <span className="detail-title">Username</span>
-                <span>{userData.username}</span>
-                <div className="line"></div>
+                {!showInput ? (
+                  <div className="detail__wrapper">
+                    <span>{userData.username}</span>
+                    <button className="btn" onClick={toggleInput}>
+                      Edit
+                    </button>
+                    <div className="line"></div>
+                  </div>
+                ) : (
+                  <div className="detail__wrapper">
+                    <input
+                      className="input input__details"
+                      type="text"
+                      value={newUsername}
+                      onChange={(e) => setNewUsername(e.target.value)}
+                      placeholder={userData.username}
+                    />
+                    <div className="buttons">
+                      <button className="btn" onClick={updateUsername}>
+                        Save
+                      </button>
+                      <button className="btn" onClick={toggleInput}>
+                        Close
+                      </button>
+                    </div>
+                    <div className="line"></div>
+                  </div>
+                )}
               </div>
               <div className="detail">
                 <span className="detail-title">Password</span>
-                <span>Change your password</span>
-                <div className="line"></div>
+                <div className="detail__wrapper">
+                  <span>Change your password</span>
+                  <button className="btn">Edit</button>
+                  <div className="line"></div>
+                </div>
               </div>
             </div>
           </div>
