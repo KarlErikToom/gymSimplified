@@ -1,4 +1,4 @@
-import { onAuthStateChanged, updateProfile } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
 import {
@@ -6,7 +6,6 @@ import {
   doc,
   getDocs,
   query,
-  setDoc,
   updateDoc,
   where,
 } from "firebase/firestore";
@@ -14,20 +13,94 @@ import {
 function AccountDetails() {
   const [authUser, setAuthUser] = useState(null);
   const [userData, setUserData] = useState([]);
-  const [showInput, setShowInput] = useState(false);
+  //
+  const [editUsername, setEditUsername] = useState(false);
+  const [editFirstName, setEditFirstName] = useState(false);
+  const [editLastName, setEditLastName] = useState(false);
   const [newUsername, setNewUsername] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newFirstName, setNewFirstName] = useState("");
+  const [newLastName, setNewLastName] = useState("");
+  async function updateUsername(e) {
+    e.preventDefault();
+    if (!authUser || !authUser.uid) {
+      return;
+    }
+    const userQuery = query(
+      collection(db, "users"),
+      where("id", "==", authUser.uid)
+    );
+    try {
+      const QuerySnapshot = await getDocs(userQuery);
+      if (!QuerySnapshot.empty) {
+        const userDoc = QuerySnapshot.docs[0];
+        const userRef = doc(db, "users", userDoc.id);
+        const newName = {
+          username: newUsername,
+        };
+        await updateDoc(userRef, newName);
 
-  async function updateUsername() {
-    const hardcodedId = "BleYxA1sHT8aAwiUvRpo";
-    const userRef = doc(db, "users", hardcodedId);
-    const newName = {
-      username: newUsername,
-    };
-    updateDoc(userRef, newName);
+        window.location.reload();
+      } else {
+        console.log("No user document found with the matching user ID");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
+  async function updateFirstName(e) {
+    e.preventDefault();
+    if (!authUser || !authUser.uid) {
+      return;
+    }
+    const userQuery = query(
+      collection(db, "users"),
+      where("id", "==", authUser.uid)
+    );
+    try {
+      const QuerySnapshot = await getDocs(userQuery);
+      if (!QuerySnapshot.empty) {
+        const userDoc = QuerySnapshot.docs[0];
+        const userRef = doc(db, "users", userDoc.id);
+        const newName = {
+          firstName: newFirstName,
+        };
+        await updateDoc(userRef, newName);
 
-  function toggleInput() {
-    setShowInput(!showInput);
+        window.location.reload();
+      } else {
+        console.log("No user document found with the matching user ID");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async function updateLastName(e) {
+    e.preventDefault();
+    if (!authUser || !authUser.uid) {
+      return;
+    }
+    const userQuery = query(
+      collection(db, "users"),
+      where("id", "==", authUser.uid)
+    );
+    try {
+      const QuerySnapshot = await getDocs(userQuery);
+      if (!QuerySnapshot.empty) {
+        const userDoc = QuerySnapshot.docs[0];
+        const userRef = doc(db, "users", userDoc.id);
+        const newName = {
+          lastName: newLastName,
+        };
+        await updateDoc(userRef, newName);
+
+        window.location.reload();
+      } else {
+        console.log("No user document found with the matching user ID");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   useEffect(() => {
@@ -69,56 +142,98 @@ function AccountDetails() {
                 <span className="detail-title">Email</span>
                 <div className="detail__wrapper">
                   <span>{userData.email}</span>
-                  <button className="btn">Edit</button>
                   <div className="line"></div>
                 </div>
               </div>
               <div className="detail">
                 <span className="detail-title">First Name</span>
                 <div className="detail__wrapper">
-                  <span>{userData.firstName}</span>
-                  <button className="btn">Edit</button>
+                  {editFirstName ? (
+                    <form action="" onSubmit={updateFirstName}>
+                      <input
+                        className="input input__details"
+                        type="text"
+                        value={newFirstName}
+                        onChange={(e) => setNewFirstName(e.target.value)}
+                        placeholder={userData.firstName}
+                        required
+                      />
+                      <button className="btn" type="submit">
+                        Save
+                      </button>
+                    </form>
+                  ) : (
+                    <span>{userData.firstName}</span>
+                  )}
+                  <button
+                    className="btn"
+                    onClick={() => setEditFirstName(!editFirstName)}
+                  >
+                    {editFirstName ? "Save" : "Edit"}
+                  </button>
                   <div className="line"></div>
                 </div>
               </div>
               <div className="detail">
                 <span className="detail-title">Last Name</span>
                 <div className="detail__wrapper">
-                  <span>{userData.lastName}</span>
-                  <button className="btn">Edit</button>
+                  {editLastName ? (
+                    <form action="" onSubmit={updateLastName}>
+                      <input
+                        className="input input__details"
+                        type="text"
+                        value={newLastName}
+                        onChange={(e) => setNewLastName(e.target.value)}
+                        placeholder={userData.lastName}
+                        required
+                      />
+                      <button className="btn" type="submit">
+                        Save
+                      </button>
+                    </form>
+                  ) : (
+                    <span>{userData.lastName}</span>
+                  )}
+                  <button
+                    className="btn"
+                    onClick={() => setEditLastName(!editLastName)}
+                  >
+                    {editLastName ? "Save" : "Edit"}
+                  </button>
                   <div className="line"></div>
                 </div>
               </div>
+
               <div className="detail">
                 <span className="detail-title">Username</span>
-                {!showInput ? (
-                  <div className="detail__wrapper">
-                    <span>{userData.username}</span>
-                    <button className="btn" onClick={toggleInput}>
-                      Edit
-                    </button>
-                    <div className="line"></div>
-                  </div>
-                ) : (
-                  <div className="detail__wrapper">
-                    <input
-                      className="input input__details"
-                      type="text"
-                      value={newUsername}
-                      onChange={(e) => setNewUsername(e.target.value)}
-                      placeholder={userData.username}
-                    />
-                    <div className="buttons">
-                      <button className="btn" onClick={updateUsername}>
+                <div className="detail__wrapper">
+                  {editUsername ? (
+                    <form action="" onSubmit={updateUsername}>
+                      <input
+                        className="input input__details"
+                        type="text"
+                        value={newUsername}
+                        onChange={(e) => setNewUsername(e.target.value)}
+                        placeholder={userData.username}
+                        required
+                      />
+                      <button className="btn" type="submit">
                         Save
                       </button>
-                      <button className="btn" onClick={toggleInput}>
-                        Close
+                    </form>
+                  ) : (
+                    <>
+                      <span>{userData.username}</span>
+                      <button
+                        className="btn"
+                        onClick={() => setEditUsername(!editUsername)}
+                      >
+                        Edit
                       </button>
-                    </div>
-                    <div className="line"></div>
-                  </div>
-                )}
+                    </>
+                  )}
+                  <div className="line"></div>
+                </div>
               </div>
               <div className="detail">
                 <span className="detail-title">Password</span>
