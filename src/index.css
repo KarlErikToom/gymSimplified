@@ -608,6 +608,12 @@ li {
   margin-right: 12px;
 }
 
+.skeleton__span{
+  height: 20px;
+  width: 200px;
+  border-radius: 5px;
+}
+
 @keyframes skeleton-loading {
   0% {
     background-position: 100% 0;

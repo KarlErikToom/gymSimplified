@@ -13,12 +13,12 @@ import {
 function AccountDetails() {
   const [authUser, setAuthUser] = useState(null);
   const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(true);
   //
   const [editUsername, setEditUsername] = useState(false);
   const [editFirstName, setEditFirstName] = useState(false);
   const [editLastName, setEditLastName] = useState(false);
   const [newUsername, setNewUsername] = useState("");
-  const [newEmail, setNewEmail] = useState("");
   const [newFirstName, setNewFirstName] = useState("");
   const [newLastName, setNewLastName] = useState("");
   async function updateUsername(e) {
@@ -116,6 +116,7 @@ function AccountDetails() {
               const userData = doc.data();
               setUserData(userData);
             });
+            setLoading(false)
           })
           .catch((error) => {
             console.error(error);
@@ -137,153 +138,187 @@ function AccountDetails() {
         <div className="row">
           <div className="account__details">
             <h1 className="accountr__details--header">Account Details</h1>
-            <div className="account__details--wrapper">
-              <div className="detail">
-                <span className="detail-title">Email</span>
-                <div className="detail__wrapper">
-                  <span>{userData.email}</span>
-                  <div className="line"></div>
+            {loading ? (
+              <div className="account__details--wrapper">
+                <div className="detail">
+                  <span className="detail-title">Email</span>
+                  <div className="detail__wrapper">
+                    <div className=" skeleton skeleton__span"></div>
+                    <div className="line"></div>
+                  </div>
+                </div>
+                <div className="detail">
+                  <span className="detail-title">First Name</span>
+                  <div className="detail__wrapper">
+                    <div className=" skeleton skeleton__span"></div>
+                    <div className="line"></div>
+                  </div>
+                </div>
+                <div className="detail">
+                  <span className="detail-title">Last Name</span>
+                  <div className="detail__wrapper">
+                    <div className=" skeleton skeleton__span"></div>
+                    <div className="line"></div>
+                  </div>
+                </div>
+
+                <div className="detail">
+                  <span className="detail-title">Username</span>
+                  <div className="detail__wrapper">
+                    <div className=" skeleton skeleton__span"></div>
+                    <div className="line"></div>
+                  </div>
                 </div>
               </div>
-              <div className="detail">
-                <span className="detail-title">First Name</span>
-                <div className="detail__wrapper">
-                  {editFirstName ? (
-                    <form
-                      action=""
-                      onSubmit={updateFirstName}
-                      className="detail__form"
-                    >
-                      <input
-                        className="input input__details"
-                        type="text"
-                        value={newFirstName}
-                        onChange={(e) => setNewFirstName(e.target.value)}
-                        placeholder={userData.firstName}
-                        required
-                      />
-                      <div className="buttons">
-                        <button className="btn" type="submit">
-                          Save
-                        </button>
+            ) : (
+              <div className="account__details--wrapper">
+                <div className="detail">
+                  <span className="detail-title">Email</span>
+                  <div className="detail__wrapper">
+                    <span>{userData.email}</span>
+                    <div className="line"></div>
+                  </div>
+                </div>
+                <div className="detail">
+                  <span className="detail-title">First Name</span>
+                  <div className="detail__wrapper">
+                    {editFirstName ? (
+                      <form
+                        action=""
+                        onSubmit={updateFirstName}
+                        className="detail__form"
+                      >
+                        <input
+                          className="input input__details"
+                          type="text"
+                          value={newFirstName}
+                          onChange={(e) => setNewFirstName(e.target.value)}
+                          placeholder={userData.firstName}
+                          required
+                        />
+                        <div className="buttons">
+                          <button className="btn" type="submit">
+                            Save
+                          </button>
+                          <button
+                            className="btn red"
+                            onClick={() => setEditFirstName(!editFirstName)}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      <>
+                        <span>{userData.firstName}</span>
                         <button
-                          className="btn red"
+                          className="btn"
                           onClick={() => setEditFirstName(!editFirstName)}
                         >
-                          Cancel
+                          Edit
                         </button>
-                      </div>
-                    </form>
-                  ) : (
-                    <>
-                      <span>{userData.firstName}</span>
-                      <button
-                        className="btn"
-                        onClick={() => setEditFirstName(!editFirstName)}
-                      >
-                        Edit
-                      </button>
-                    </>
-                  )}
-                  <div className="line"></div>
+                      </>
+                    )}
+                    <div className="line"></div>
+                  </div>
                 </div>
-              </div>
-              <div className="detail">
-                <span className="detail-title">Last Name</span>
-                <div className="detail__wrapper">
-                  {editLastName ? (
-                    <form
-                      action=""
-                      onSubmit={updateLastName}
-                      className="detail__form"
-                    >
-                      <input
-                        className="input input__details"
-                        type="text"
-                        value={newLastName}
-                        onChange={(e) => setNewLastName(e.target.value)}
-                        placeholder={userData.lastName}
-                        required
-                      />
-                      <div className="buttons">
-                        <button className="btn" type="submit">
-                          Save
-                        </button>
+                <div className="detail">
+                  <span className="detail-title">Last Name</span>
+                  <div className="detail__wrapper">
+                    {editLastName ? (
+                      <form
+                        action=""
+                        onSubmit={updateLastName}
+                        className="detail__form"
+                      >
+                        <input
+                          className="input input__details"
+                          type="text"
+                          value={newLastName}
+                          onChange={(e) => setNewLastName(e.target.value)}
+                          placeholder={userData.lastName}
+                          required
+                        />
+                        <div className="buttons">
+                          <button className="btn" type="submit">
+                            Save
+                          </button>
+                          <button
+                            className="btn red"
+                            onClick={() => setEditLastName(!editLastName)}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      <>
+                        <span>{userData.lastName}</span>
                         <button
-                          className="btn red"
+                          className="btn"
                           onClick={() => setEditLastName(!editLastName)}
                         >
-                          Cancel
+                          Edit
                         </button>
-                      </div>
-                    </form>
-                  ) : (
-                    <>
-                      <span>{userData.lastName}</span>
-                      <button
-                        className="btn"
-                        onClick={() => setEditLastName(!editLastName)}
-                      >
-                        Edit
-                      </button>
-                    </>
-                  )}
-                  <div className="line"></div>
+                      </>
+                    )}
+                    <div className="line"></div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="detail">
-                <span className="detail-title">Username</span>
-                <div className="detail__wrapper">
-                  {editUsername ? (
-                    <form
-                      action=""
-                      onSubmit={updateUsername}
-                      className="detail__form"
-                    >
-                      <input
-                        className="input input__details"
-                        type="text"
-                        value={newUsername}
-                        onChange={(e) => setNewUsername(e.target.value)}
-                        placeholder={userData.username}
-                        required
-                      />
-                      <div className="buttons">
-                        <button className="btn" type="submit">
-                          Save
-                        </button>
+                <div className="detail">
+                  <span className="detail-title">Username</span>
+                  <div className="detail__wrapper">
+                    {editUsername ? (
+                      <form
+                        action=""
+                        onSubmit={updateUsername}
+                        className="detail__form"
+                      >
+                        <input
+                          className="input input__details"
+                          type="text"
+                          value={newUsername}
+                          onChange={(e) => setNewUsername(e.target.value)}
+                          placeholder={userData.username}
+                          required
+                        />
+                        <div className="buttons">
+                          <button className="btn" type="submit">
+                            Save
+                          </button>
+                          <button
+                            className="btn red"
+                            onClick={() => setEditUsername(!editUsername)}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      <>
+                        <span>{userData.username}</span>
                         <button
-                          className="btn red"
+                          className="btn"
                           onClick={() => setEditUsername(!editUsername)}
                         >
-                          Cancel
+                          Edit
                         </button>
-                      </div>
-                    </form>
-                  ) : (
-                    <>
-                      <span>{userData.username}</span>
-                      <button
-                        className="btn"
-                        onClick={() => setEditUsername(!editUsername)}
-                      >
-                        Edit
-                      </button>
-                    </>
-                  )}
-                  <div className="line"></div>
+                      </>
+                    )}
+                    <div className="line"></div>
+                  </div>
+                </div>
+                <div className="detail">
+                  <span className="detail-title">Password</span>
+                  <div className="detail__wrapper">
+                    <span>Change your password</span>
+                    <button className="btn">Edit</button>
+                    <div className="line"></div>
+                  </div>
                 </div>
               </div>
-              <div className="detail">
-                <span className="detail-title">Password</span>
-                <div className="detail__wrapper">
-                  <span>Change your password</span>
-                  <button className="btn">Edit</button>
-                  <div className="line"></div>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
