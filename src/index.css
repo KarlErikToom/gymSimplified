@@ -739,6 +739,15 @@ li {
     width: 80%;
     margin-top: 24px;
   }
+  /*account details page*/
+  .detail__form{
+    flex-direction: column;
+    align-items: center;
+  }
+  .input__details{
+    width: 100%;
+    margin-bottom: 24px;
+  }
 
   /*Exercise page*/
   #exercise{
@@ -772,9 +781,7 @@ li {
   .sidebar.closed {
     left: -80%;
   }
-  .nav__container {
-    justify-content: center;
-  }
+  
   .nav__logo {
     width: 100px;
   }
@@ -826,6 +833,10 @@ li {
   }
   .bottom__svg{
     display: none;
+  }
+  /*account details page*/
+  #account{
+    height: auto;
   }
 }
 @media screen and (max-width: 767px) and (orientation: landscape) {
