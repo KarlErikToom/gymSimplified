@@ -3,6 +3,8 @@ import curl from "../assets/curl-min.jpg";
 import { useState } from "react";
 import { Blurhash } from "react-blurhash";
 import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Info() {
   const [loading, setLoading] = useState(true);
@@ -13,6 +15,7 @@ function Info() {
     img.onload = () => {
       setLoading(false);
     };
+    AOS.init();
   }, []);
   return (
     <section id="info">
@@ -32,7 +35,7 @@ function Info() {
                   punch={1}
                 />
               ) : (
-                <img loading="lazy" src={curl} alt="" className="info__img" />
+                <img loading="lazy" src={curl} alt="" className="info__img" data-aos="flip-right" data-aos-duration="1400" data-aos-once="true" data-aos-offset="250" />
               )}
             </figure>
             <div className="info__about">

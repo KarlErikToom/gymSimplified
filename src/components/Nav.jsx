@@ -6,6 +6,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useRef } from "react";
+import AOS from "aos";
 
 function Nav({ setIsSidebarOpen }) {
   const [authUser, setAuthUser] = useState(null);
@@ -48,7 +49,7 @@ function Nav({ setIsSidebarOpen }) {
               const userData = doc.data();
               setUserData(userData);
             });
-            setLoading(false)
+            setLoading(false);
           })
           .catch((error) => {
             console.error(error);

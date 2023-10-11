@@ -194,7 +194,7 @@ li {
 
 /*LANDING */
 #landing {
-  height: 70vh;
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,19 +208,24 @@ li {
 }
 
 .landing__wrapper {
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .landing__header {
   font-size: 82px;
-  margin-bottom: 24px;
   color: white;
+  display: flex;
+  align-items: center;
+  
+}
+.landing__header div{
+  margin: 0 12px;
 }
 .landing__subheader {
   font-size: 24px;
-  margin-bottom: 24px;
   text-align: center;
   max-width: 90%;
   color: white;

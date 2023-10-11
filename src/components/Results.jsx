@@ -9,6 +9,8 @@ import steak from "../assets/steak-min.jpg";
 import { useState } from "react";
 import { Blurhash } from "react-blurhash";
 import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Results() {
   const [loading, setLoading] = useState(true);
@@ -87,6 +89,7 @@ function Results() {
     img.onload = () => {
       setLoading(false);
     };
+    AOS.init();
   }, []);
 
   return (
@@ -109,7 +112,7 @@ function Results() {
                 vero ipsum doloremque dolor atque a beatae.
               </p>
             </div>
-            <figure className="results__slider">
+            <figure className="results__slider" data-aos="fade"  data-aos-duration="1000" data-aos-once="true">
               {loading ? (
                 <Slider {...settings}>
                   <div className="slide">
@@ -170,8 +173,8 @@ function Results() {
                   </div>
                 </Slider>
               ) : (
-                <Slider {...settings}>
-                  <div className="slide">
+                <Slider {...settings} >
+                  <div className="slide" >
                     <div className="slide__content">
                       <img loading="lazy" src={bench} alt="" />
                       <h1>Learn the movements</h1>
