@@ -838,6 +838,10 @@ li {
   #account{
     height: auto;
   }
+  /*signup page*/
+  .form{
+    padding-top: 62px;
+  }
 }
 @media screen and (max-width: 767px) and (orientation: landscape) {
   /*nav*/
@@ -857,5 +861,16 @@ li {
   /*exercise page*/
   .exercise__description span{
     min-width: 200px;
+  }
+
+  /*signup page*/
+  #signup{
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form{
+    padding-top: 120px;
   }
 }
