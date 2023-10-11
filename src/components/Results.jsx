@@ -1,12 +1,11 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import winner from "../assets/winner.svg";
-import bench from "../assets/bench.jpg";
+import bench from "../assets/bench-min.jpg";
 import Slider from "react-slick";
-import squat from "../assets/squat.jpg";
-import scale from "../assets/scale.jpg";
-import steak from "../assets/steak.jpg";
+import squat from "../assets/squat-min.jpg";
+import scale from "../assets/scale-min.jpg";
+import steak from "../assets/steak-min.jpg";
 
 function Results() {
   function SampleNextArrow(props) {
@@ -101,25 +100,25 @@ function Results() {
               <Slider {...settings}>
                 <div className="slide">
                   <div className="slide__content">
-                    <img src={bench} alt="" />
+                    <img loading="lazy" src={bench} alt="" />
                     <h1>Learn the movements</h1>
                   </div>
                 </div>
                 <div className="slide">
                   <div className="slide__content">
-                    <img src={squat} alt="" />
+                    <img loading="lazy" src={squat} alt="" />
                     <h1>Get stronger</h1>
                   </div>
                 </div>
                 <div className="slide">
                   <div className="slide__content">
-                    <img src={scale} alt="" />
+                    <img loading="lazy" src={scale} alt="" />
                     <h1>Learn to diet</h1>
                   </div>
                 </div>
                 <div className="slide">
                   <div className="slide__content">
-                    <img src={steak} alt="" />
+                    <img loading="lazy" src={steak} alt="" />
                     <h1>Know what to eat</h1>
                   </div>
                 </div>
