@@ -848,6 +848,13 @@ li {
   .nav__container{
     justify-content: space-between;
   }
+  /*sidebar*/
+  .sidebar.closed{
+    top: 24.9%;
+  }
+  .sidebar.open{
+    top: 24.9%;
+  }
 
   /*LANDING PAGE*/
   #landing{
@@ -859,6 +866,12 @@ li {
   }
 
   /*exercise page*/
+  .exercise__description, .exercise__trainer{
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 2px solid #3abb2b;
+    padding-bottom: 12px;
+  }
   .exercise__description span{
     min-width: 200px;
   }
@@ -873,4 +886,10 @@ li {
   .form{
     padding-top: 120px;
   }
+
+  
+
+
+
+
 }
