@@ -11,6 +11,7 @@ function Nav({ setIsSidebarOpen }) {
   const [authUser, setAuthUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const menuRef = useRef(null);
 
@@ -47,6 +48,7 @@ function Nav({ setIsSidebarOpen }) {
               const userData = doc.data();
               setUserData(userData);
             });
+            setLoading(false)
           })
           .catch((error) => {
             console.error(error);
@@ -66,53 +68,69 @@ function Nav({ setIsSidebarOpen }) {
     <>
       <nav ref={menuRef}>
         <div className="nav__container">
-          <div className="nav__logo--btn">
-            <button onClick={toggleSidebar} className="menu__btn">
-              <FontAwesomeIcon icon="fa-solid fa-bars" />
-            </button>
-            <Link to={"/"}>
-              <img src={logo} alt="" className="nav__logo" />
-            </Link>
-          </div>
-          <div className="nav__buttons">
-            {authUser ? (
-              <>
-                <button
-                  className="user__btn btn"
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                >
-                  {userData.username?.split("")[0].toString().toUpperCase()}
+          {loading ? (
+            <>
+              <div className="nav__logo--btn">
+                <Link to={"/"}>
+                  <img src={logo} alt="" className="nav__logo" />
+                </Link>
+              </div>
+              <div className="nav__buttons--skeleton">
+                <div className="skeleton btn__skeleton"></div>
+                <div className="user__btn skeleton  user__btn--skeleton"></div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="nav__logo--btn">
+                <button onClick={toggleSidebar} className="menu__btn">
+                  <FontAwesomeIcon icon="fa-solid fa-bars" />
                 </button>
-                {dropdownOpen && (
-                  <div className="nav__dropdown">
-                    <ul className="nav__dropdown--list">
-                      <Link
-                        to={"/details"}
-                        className="link"
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
-                      >
-                        {" "}
-                        <li className="nav__dropdown--link">Account</li>
-                      </Link>
-                      <a href="/" className="link" onClick={userSignOut}>
-                        {" "}
-                        <li className="nav__dropdown--link">Logout</li>
-                      </a>
-                    </ul>
-                  </div>
+                <Link to={"/"}>
+                  <img src={logo} alt="" className="nav__logo" />
+                </Link>
+              </div>
+              <div className="nav__buttons">
+                {authUser ? (
+                  <>
+                    <button
+                      className="user__btn btn"
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                    >
+                      {userData.username?.split("")[0].toString().toUpperCase()}
+                    </button>
+                    {dropdownOpen && (
+                      <div className="nav__dropdown">
+                        <ul className="nav__dropdown--list">
+                          <Link
+                            to={"/details"}
+                            className="link"
+                            onClick={() => setDropdownOpen(!dropdownOpen)}
+                          >
+                            {" "}
+                            <li className="nav__dropdown--link">Account</li>
+                          </Link>
+                          <a href="/" className="link" onClick={userSignOut}>
+                            {" "}
+                            <li className="nav__dropdown--link">Logout</li>
+                          </a>
+                        </ul>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <Link to={"/login"}>
+                      <button className="btn">Login</button>
+                    </Link>
+                    <Link to={"/signup"}>
+                      <button className="btn">Sign Up</button>
+                    </Link>
+                  </>
                 )}
-              </>
-            ) : (
-              <>
-                <Link to={"/login"}>
-                  <button className="btn">Login</button>
-                </Link>
-                <Link to={"/signup"}>
-                  <button className="btn">Sign Up</button>
-                </Link>
-              </>
-            )}
-          </div>
+              </div>
+            </>
+          )}
         </div>
       </nav>
     </>

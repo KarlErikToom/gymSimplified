@@ -578,3 +578,42 @@ li {
   border-radius: 10px;
   margin: 0;
 }
+
+/*skeletons*/
+.skeleton {
+  background: linear-gradient(
+    120deg,
+    #c0bbbb 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #c0bbbb 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: skeleton-loading 2000ms infinite;
+}
+.nav__buttons--skeleton {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  justify-content: space-between;
+}
+.btn__skeleton {
+  width: 120px;
+  height: 40px;
+  margin-right: 24px;
+  border-radius: 10px;
+}
+.user__btn--skeleton {
+  margin-right: 12px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
