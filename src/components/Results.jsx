@@ -6,8 +6,13 @@ import Slider from "react-slick";
 import squat from "../assets/squat-min.jpg";
 import scale from "../assets/scale-min.jpg";
 import steak from "../assets/steak-min.jpg";
+import { useState } from "react";
+import { Blurhash } from "react-blurhash";
+import { useEffect } from "react";
 
 function Results() {
+  const [loading, setLoading] = useState(true);
+
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -76,6 +81,14 @@ function Results() {
     ],
   };
 
+  useEffect(() => {
+    const img = new Image();
+    img.src = steak;
+    img.onload = () => {
+      setLoading(false);
+    };
+  }, []);
+
   return (
     <section id="results">
       <div className="container">
@@ -97,32 +110,93 @@ function Results() {
               </p>
             </div>
             <figure className="results__slider">
-              <Slider {...settings}>
-                <div className="slide">
-                  <div className="slide__content">
-                    <img loading="lazy" src={bench} alt="" />
-                    <h1>Learn the movements</h1>
+              {loading ? (
+                <Slider {...settings}>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <Blurhash
+                        hash="L88|^o_3?Hxu~q?bs.xutR?Hs;xu"
+                        style={{
+                          width: "100%",
+                          paddingBottom: "70%",
+                        }}
+                        resolutionX={32}
+                        resolutionY={32}
+                        punch={1}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="slide">
-                  <div className="slide__content">
-                    <img loading="lazy" src={squat} alt="" />
-                    <h1>Get stronger</h1>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <Blurhash
+                        hash="LXG+5URlIURN~VIoWYn#ROV@tRo#"
+                        style={{
+                          width: "100%",
+                          paddingBottom: "70%",
+                        }}
+                        resolutionX={32}
+                        resolutionY={32}
+                        punch={1}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="slide">
-                  <div className="slide__content">
-                    <img loading="lazy" src={scale} alt="" />
-                    <h1>Learn to diet</h1>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <Blurhash
+                        hash="L37_KBs*krRk.TM_IUflj_xuZ~ae"
+                        style={{
+                          width: "100%",
+                          paddingBottom: "70%",
+                        }}
+                        resolutionX={32}
+                        resolutionY={32}
+                        punch={1}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="slide">
-                  <div className="slide__content">
-                    <img loading="lazy" src={steak} alt="" />
-                    <h1>Know what to eat</h1>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <Blurhash
+                        hash="L5BM0;?a00xa~X9u00IV2^j]MJE1"
+                        style={{
+                          width: "100%",
+                          paddingBottom: "70%",
+                        }}
+                        resolutionX={32}
+                        resolutionY={32}
+                        punch={1}
+                      />
+                    </div>
                   </div>
-                </div>
-              </Slider>
+                </Slider>
+              ) : (
+                <Slider {...settings}>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <img loading="lazy" src={bench} alt="" />
+                      <h1>Learn the movements</h1>
+                    </div>
+                  </div>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <img loading="lazy" src={squat} alt="" />
+                      <h1>Get stronger</h1>
+                    </div>
+                  </div>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <img loading="lazy" src={scale} alt="" />
+                      <h1>Learn to diet</h1>
+                    </div>
+                  </div>
+                  <div className="slide">
+                    <div className="slide__content">
+                      <img loading="lazy" src={steak} alt="" />
+                      <h1>Know what to eat</h1>
+                    </div>
+                  </div>
+                </Slider>
+              )}
             </figure>
           </div>
         </div>

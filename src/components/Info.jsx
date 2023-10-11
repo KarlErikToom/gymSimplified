@@ -5,13 +5,13 @@ import { Blurhash } from "react-blurhash";
 import { useEffect } from "react";
 
 function Info() {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const img = new Image();
     img.src = curl;
     img.onload = () => {
-      setImageLoaded(true);
+      setLoading(false);
     };
   }, []);
   return (
@@ -20,7 +20,7 @@ function Info() {
         <div className="row">
           <div className="info__wrapper">
             <figure className="info__figure">
-              {!imageLoaded ? (
+              {loading ? (
                 <Blurhash
                   hash="L06twK5l00~U00DO00xa1j^+?v%N"
                   style={{
