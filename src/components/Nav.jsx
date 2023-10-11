@@ -19,6 +19,10 @@ function Nav({ setIsSidebarOpen }) {
   function toggleSidebar() {
     setIsSidebarOpen((prevIsSidebarOpen) => !prevIsSidebarOpen);
   }
+  function closeSidebarAndDropdown() {
+    setIsSidebarOpen(false);
+    setDropdownOpen(false)
+  }
 
   function userSignOut() {
     signOut(auth)
@@ -87,7 +91,7 @@ function Nav({ setIsSidebarOpen }) {
                 <button onClick={toggleSidebar} className="menu__btn">
                   <FontAwesomeIcon icon="fa-solid fa-bars" />
                 </button>
-                <Link to={"/"}>
+                <Link to={"/"} onClick={closeSidebarAndDropdown}>
                   <img src={logo} alt="" className="nav__logo" />
                 </Link>
               </div>
@@ -106,7 +110,8 @@ function Nav({ setIsSidebarOpen }) {
                           <Link
                             to={"/details"}
                             className="link"
-                            onClick={() => setDropdownOpen(!dropdownOpen)}
+                            onClick={closeSidebarAndDropdown}
+                            
                           >
                             {" "}
                             <li className="nav__dropdown--link">Account</li>
