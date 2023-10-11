@@ -21,7 +21,7 @@ function Nav({ setIsSidebarOpen }) {
   }
   function closeSidebarAndDropdown() {
     setIsSidebarOpen(false);
-    setDropdownOpen(false)
+    setDropdownOpen(false);
   }
 
   function userSignOut() {
@@ -60,6 +60,7 @@ function Nav({ setIsSidebarOpen }) {
           });
       } else {
         setAuthUser(null);
+        setLoading(false)
       }
     });
 
@@ -111,7 +112,6 @@ function Nav({ setIsSidebarOpen }) {
                             to={"/details"}
                             className="link"
                             onClick={closeSidebarAndDropdown}
-                            
                           >
                             {" "}
                             <li className="nav__dropdown--link">Account</li>
