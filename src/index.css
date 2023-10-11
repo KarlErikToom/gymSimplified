@@ -348,7 +348,9 @@ li {
 .top__svg {
   position: absolute;
   top: 0;
+  left: -20%;
   z-index: 1;
+  width: 100%;
 }
 .bottom__svg {
   position: absolute;
@@ -737,6 +739,33 @@ li {
     width: 80%;
     margin-top: 24px;
   }
+
+  /*Exercise page*/
+  #exercise{
+    display: flex;
+    align-items: center;
+  }
+  .exercise__trainer{
+    flex-direction: column;
+    align-items: start;
+    border-bottom: 2px solid #3abb2b;
+    padding-bottom: 12px;
+  }
+  .exercise__trainer span{
+    min-width: 100px;
+  }
+  .exercise__description{
+    flex-direction: column;
+    align-items: start;
+    border-bottom: 2px solid #3abb2b;
+    padding-bottom: 12px;
+  }
+  .exercise__description span {
+    min-width: 100px;
+  }
+  .exercise__border{
+    height: 600px;
+  }
 }
 @media (max-height: 700px) {
   /*sidebar nav*/
@@ -758,34 +787,64 @@ li {
     margin: 0 6px;
   }
   /*landing*/
-  .landing__wrapper{
+  .landing__wrapper {
     height: 40vh;
   }
-  .btn{
+  .btn {
     font-size: 14px;
   }
-  .info__about{
+  .info__about {
     height: 200px;
   }
-  .info__about--header{
+  .info__about--header {
     font-size: 26px;
   }
-  .info__about--para{
+  .info__about--para {
     font-size: 12px;
   }
-  .info__figure{
+  .info__figure {
     margin-top: 24px;
   }
-  .results__header{
+  .results__header {
     font-size: 26px;
   }
-  .results__para{
+  .results__para {
     font-size: 12px;
   }
-  .results__slider{
+  .results__slider {
     padding: 12px;
   }
-  .results__slider h1{
+  .results__slider h1 {
     font-size: 18px;
+  }
+  /*Exercise page*/
+  #exercise{
+    height: auto;
+  }
+  .exercise__border{
+    height: 540px;
+  }
+  .bottom__svg{
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  /*nav*/
+  .nav__container{
+    justify-content: space-between;
+  }
+
+  /*LANDING PAGE*/
+  #landing{
+    height: 100vh;
+  }
+  .landing__wrapper{
+    margin-top: 62px;
+    height: 70vh;
+  }
+
+  /*exercise page*/
+  .exercise__description span{
+    min-width: 200px;
   }
 }
