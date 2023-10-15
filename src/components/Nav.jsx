@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useRef } from "react";
-import AOS from "aos";
 
 function Nav({ setIsSidebarOpen }) {
   const [authUser, setAuthUser] = useState(null);
@@ -60,7 +59,7 @@ function Nav({ setIsSidebarOpen }) {
           });
       } else {
         setAuthUser(null);
-        setLoading(false)
+        setLoading(false);
       }
     });
 

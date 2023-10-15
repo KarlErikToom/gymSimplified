@@ -11,12 +11,13 @@ import AccountDetails from "./pages/AccountDetails";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [user, setUser] = useState({});
+
   return (
     <div className="App">
       <Router>
         <Nav setIsSidebarOpen={setIsSidebarOpen} user={user} />
         <div className="side-main">
-          <Sidebar isOpen={isSidebarOpen} />
+          <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
           <Routes>
             <Route exact path="/" element={<Landing />} />
             <Route path="/:muscleGroup/:id" element={<ExercisePage />} />

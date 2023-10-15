@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-function Sidebar({ isOpen }) {
+function Sidebar({ isOpen, setIsOpen }) {
   const [authUser, setAuthUser] = useState(null);
 
-  
+  const closeSidebar = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -36,10 +38,7 @@ function Sidebar({ isOpen }) {
               <span>Muscle Groups</span>
             </div>
             {Object.entries(exerciseData).map(([muscleGroup, exercises]) => (
-              <SubMenu
-                label={muscleGroup}
-                key={muscleGroup}
-              >
+              <SubMenu label={muscleGroup} key={muscleGroup}>
                 <div className="menuitem__wrapper">
                   <span className="menuitem__span">Free Access</span>
                   {exercises
@@ -48,7 +47,10 @@ function Sidebar({ isOpen }) {
                       <MenuItem
                         key={exercise.id}
                         component={
-                          <Link to={`/${muscleGroup}/${exercise.id}`} />
+                          <Link
+                            to={`/${muscleGroup}/${exercise.id}`}
+                            onClick={closeSidebar}
+                          />
                         }
                       >
                         {exercise.name}
@@ -63,7 +65,10 @@ function Sidebar({ isOpen }) {
                       <MenuItem
                         key={exercise.id}
                         component={
-                          <Link to={`/${muscleGroup}/${exercise.id}`} />
+                          <Link
+                            to={`/${muscleGroup}/${exercise.id}`}
+                            onClick={closeSidebar}
+                          />
                         }
                         disabled={!authUser}
                       >
