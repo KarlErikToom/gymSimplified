@@ -694,9 +694,16 @@ li {
   .nav__buttons {
     display: flex;
   }
+  .nav__dropdown{
+    bottom: -165%;
+  }
   .nav__container .btn{
     font-size: 14px;
     padding: 10px 14px;
+  }
+  .user__btn{
+    width: 60px;
+    height: 60px;
   }
 
   .sidebar.closed {
